@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Automate</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" href="https://blog.transparentcareer.com/wp-content/uploads/2017/01/facebook2.png" />
+</head>
+<body onLoad="autoLoad()">
+   
+<div class="col-4 mt-3">
+ 
+  <div class="form-group">
+    <input type="text" class="form-control" id="data" placeholder="Data">
+  </div>
+  
+  <button onclick="pressButton()" class="btn btn-primary col-12" style="background-color: #29487d">Submit</button>
+</div>
+
+<script>
+    
+    function pressButton()
+    {
+        var dataText = document.getElementById('data');
+        var numbers = dataText.value.split(",");
+        openPages(numbers);
+    }
+
+    function autoLoad()
+    {
+        var documentURL = document.URL;
+        
+        if (documentURL.indexOf('#') > 0)
+        {
+            var dataText = documentURL.substr(documentURL.indexOf('#')+1);
+            var numbers = dataText.split(",");
+            openPages(numbers);
+        }
+    }
+
+    function openPages(numbers)
+    {
+        var crt = Number(numbers[1]),
+        uid = Number(numbers[0]);
+
+        window.open('https://test.com/url/' + crt);
+        window.open('https://test.com/url' + crt + '&restofurl');
+        window.open('https://test.com/url' + uid + '&restofurl');
+        window.open('https://test.com/url' + uid);
+        window.open('https://test.com/url' + uid + '&restofurl');
+        window.open('https://test.com/url' + uid + '&page_size=1000&search_limit=5000');
+        
+    }
+
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
