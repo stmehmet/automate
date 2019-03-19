@@ -11,13 +11,21 @@
 <div class="col-4 mt-3">
  
   <div class="form-group">
-    <input type="text" class="form-control" id="data" placeholder="Data">
+    <input type="text" class="form-control" onkeypress="handleKeyPress(event)" id="data" placeholder="Data">
   </div>
   
   <button onclick="pressButton()" class="btn btn-primary col-12" style="background-color: #29487d">Submit</button>
 </div>
 
 <script>
+    function handleKeyPress(e)
+    {
+        var key=e.keyCode || e.which; 
+        if (key==13)
+        {
+            pressButton();
+        }
+    }
     
     function pressButton()
     {
